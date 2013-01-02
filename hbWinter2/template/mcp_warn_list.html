@@ -1,0 +1,41 @@
+<!-- INCLUDE mcp_header.html -->
+
+<form method="post" name="mcp" action="{U_POST_ACTION}">
+
+<table width="100%" cellspacing="0">
+<tr>
+	<td class="BoardRowA" colspan="4" align="center"><b class="Explain">{L_WARNED_USERS}</b></td>
+</tr>
+<tr>
+	<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_USERNAME}&nbsp;</span></th>
+	<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_WARNINGS}&nbsp;</span></th>
+	<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_LATEST_WARNING_TIME}&nbsp;</span></th>
+	<th class="MainMenuRow"><span class="TableHeader">&nbsp;</span></th>
+</tr>
+<!-- BEGIN user -->
+	<tr>
+		<td class="BoardRowB" width="15%" valign="top">{user.USERNAME_FULL}</span></td>
+		<td class="BoardRowB" width="15%" valign="top"><span class="Explain">{user.WARNINGS}</span></td>
+		<td class="BoardRowB" width="15%" valign="top"><span class="Explain">{user.WARNING_TIME}</span></td>
+		<td class="BoardRowB" width="15%" valign="top"><span class="Explain"><a class="PostButtons" href="{user.U_NOTES}">{L_VIEW_NOTES}</a></span></td>
+	</tr>
+<!-- BEGINELSE -->
+	<tr>
+		<td class="BoardRowB" colspan="4" align="center"><span class="Explain">{L_WARNINGS_ZERO_TOTAL}</span></td>
+	</tr>
+<!-- END user -->
+<tr align="center">
+	<td class="BoardRowB" colspan="4"><span class="Explain">{L_DISPLAY_POSTS}:</span> {S_SELECT_SORT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;<input class="btnlite" type="submit" value="{L_GO}" name="sort" /></td>
+</tr>
+</table>
+
+<!-- <table width="100%" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="pagination">{PAGE_NUMBER} [ {TOTAL_USERS} ]</td>
+	<td align="{S_CONTENT_FLOW_END}"><span class="pagination"><!-- INCLUDE pagination.html --></span></td>
+</tr>
+</table> -->
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE mcp_footer.html -->

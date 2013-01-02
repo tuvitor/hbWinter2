@@ -1,0 +1,48 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="faqtop"></a>
+
+<div id="pagecontent">
+
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<th class="MainMenuRow"><span class="TableHeader">{L_FAQ_TITLE}</span></th>
+	</tr>
+	<tr>
+		<td class="BoardRowB">
+		<!-- BEGIN faq_block -->
+			<span style="font-size:10pt"><b><u>{faq_block.BLOCK_TITLE}</u></b></span><br />
+			<!-- BEGIN faq_row -->
+				<span style="font-size:9pt"><a class="PostButtons" href="#f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></span><br />
+			<!-- END faq_row -->
+			<br />
+		<!-- END faq_block -->
+		</td>
+	</tr>
+	</table>
+	<!-- BEGIN faq_block -->
+		<table class="BoardRowB" width="100%" cellspacing="0">
+		<tr> 
+			<td class="BoardColumn" align="center"><h4>{faq_block.BLOCK_TITLE}</h4></td>
+		</tr>
+		<!-- BEGIN faq_row --> 
+		<tr>
+			<!-- IF faq_block.faq_row.S_ROW_COUNT is even -->
+				<td class="BoardRowB" valign="top">
+			<!-- ELSE -->
+				<td class="BoardRowA" valign="top">
+			<!-- ENDIF -->
+				<div class="postbody"><a name="f{faq_block.S_ROW_COUNT}{faq_block.faq_row.S_ROW_COUNT}"></a><b>&#187; {faq_block.faq_row.FAQ_QUESTION}</b></div>
+				<div class="Explain">{faq_block.faq_row.FAQ_ANSWER}</div>
+				<p class="gensmall"><a class="PostButtons" href="#faqtop"><b>{L_BACK_TO_TOP}</b></a></p>
+			</td>
+		</tr>
+		<!-- END faq_row -->
+		</table>
+	<!-- END faq_block -->
+
+</div>
+
+<!-- INCLUDE breadcrumbs.html -->
+<tr><td class="MainMenuRow"><div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div></td></tr>
+<!-- INCLUDE overall_footer.html -->

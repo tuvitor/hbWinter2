@@ -1,0 +1,72 @@
+<!-- INCLUDE ucp_header.html -->
+
+<table width="100%" cellspacing="0">
+<tr>
+	<th colspan="3" class="MainMenuRow"><b>{L_UCP}</b></th>
+</tr>
+<tr>
+	<td class="BoardRowB" colspan="3" align="center"><p class="Explain">{L_UCP_WELCOME}</p></td>
+</tr>
+<tr>
+	<th colspan="3" class="MainMenuRow"><b>{L_IMPORTANT_NEWS}</th>
+</tr>
+
+<!-- BEGIN topicrow -->
+
+	<tr class="BoardRowB">
+		<td class="BoardRowB" width="25" align="center">&nbsp;&bull;&nbsp;</td>
+		<td class="BoardRowB" width="100%">
+			<p><!-- IF topicrow.S_UNREAD --><a href="{topicrow.U_NEWEST_POST}">&diams;</a> <!-- ENDIF --><a class="SubjectLink" href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a></p><p class="Explain">{topicrow.GOTO_PAGE}</p>
+		</td>
+		<td class="BoardRowB" width="120" align="center" nowrap="nowrap">
+			<span class="Explain">{topicrow.LAST_POST_TIME}</span>
+			<span class="Explain">{topicrow.LAST_POST_AUTHOR_FULL}
+				<!-- <a href="{topicrow.U_LAST_POST}">{LAST_POST_IMG}</a> -->
+			</span>
+		</td>
+	</tr>
+<!-- BEGINELSE -->
+	<tr class="BoardRowB">
+		<td align="center" colspan="3"><b class="Explain">{L_NO_IMPORTANT_NEWS}</b></td>
+	</tr>
+<!-- END topicrow -->
+
+<tr>
+	<th colspan="3" class="MainMenuRow"><b>{L_YOUR_DETAILS}</th>
+</tr>
+<tr>
+	<td class="BoardRowB" colspan="3">
+		<table width="100%" cellspacing="0" cellpadding="4">
+		<tr> 
+			<td class="BoardRowB" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><b>{L_JOINED}: </b></td>
+			<td class="BoardRowB" width="100%">{JOINED}</td>
+		</tr>
+		<tr> 
+			<td class="BoardRowB" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><b>{L_TOTAL_POSTS}: </b></td>
+			<td class="BoardRowB"><!-- IF POSTS_PCT -->{POSTS} - <span class="Explain">[{POSTS_PCT} / {POSTS_DAY}]<br /><a class="PostButtons" href="{U_SEARCH_SELF}">{L_SEARCH_YOUR_POSTS}</a></span><!-- ELSE -->{POSTS}<!-- ENDIF --></td>
+		</tr>
+		<!-- IF S_SHOW_ACTIVITY -->
+			<tr>
+				<td class="BoardRowB" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><b>{L_ACTIVE_IN_FORUM}: </b></td>
+				<td class="BoardRowB"><!-- IF ACTIVE_FORUM --><b><a class="SubjectLink" href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></b> - <span class="Explain">[ {ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT} ]</span><!-- ELSE --><span>-</span><!-- ENDIF --></td>
+			</tr>
+			<tr>
+				<td class="BoardRowB" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><b>{L_ACTIVE_IN_TOPIC}: </b></td>
+				<td class="BoardRowB"><!-- IF ACTIVE_TOPIC --><b><a class="SubjectLink" href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></b> - <span class="Explain">[ {ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT} ]</span><!-- ELSE --><span class="gen">-</span><!-- ENDIF --></td>
+			</tr>
+		<!-- ENDIF -->
+		<!-- IF WARNINGS -->
+			<tr>
+				<td class="BoardRowB" align="{S_CONTENT_FLOW_END}" valign="middle" nowrap="nowrap"><b class="genmed">{L_YOUR_WARNINGS}: </b></td>
+				<td class="BoardRowB">{WARNING_IMG} [ {WARNINGS} ]</td>
+			</tr>
+		<!-- ENDIF -->
+		</table>
+	</td>
+</tr>
+<tr>
+	<td class="BoardRowB" colspan="3">&nbsp;</td>
+</tr>
+</table>
+
+<!-- INCLUDE ucp_footer.html -->

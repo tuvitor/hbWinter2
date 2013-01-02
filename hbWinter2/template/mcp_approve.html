@@ -1,0 +1,42 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="pagecontent">
+
+	<form name="confirm" action="{S_CONFIRM_ACTION}" method="post">
+	
+	<table width="100%" cellspacing="0">
+	<tr>
+		<th class="MainMenuRow"><span class="TableHeader">{MESSAGE_TITLE}</span></th>
+	</tr>
+	<tr>
+		<td class="BoardRowB" align="center">
+			<!-- IF ADDITIONAL_MSG -->
+				<span class="Error">{ADDITIONAL_MSG}</span><br />
+			<!-- ENDIF -->
+			<!-- IF S_NOTIFY_POSTER -->
+				<input type="checkbox" class="radio" name="notify_poster" checked="checked" /><!-- IF S_APPROVE -->{L_NOTIFY_POSTER_APPROVAL}<!-- ELSE -->{L_NOTIFY_POSTER_DISAPPROVAL}<!-- ENDIF --><br />
+			<!-- ENDIF -->
+			<!-- IF not S_APPROVE -->
+				<table border="0" width="90%" cellspacing="0" cellpadding="1">
+				<tr>
+					<td class="BoardRowB" width="22%"><b>{L_DISAPPROVE_REASON}:</b></td>
+					<td class="BoardRowB" width="78%"><select name="reason_id"><!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason --></select></td>
+				</tr>
+				<tr>
+					<td class="BoardRowB" valign="top"><b>{L_MORE_INFO}:</b><br /><span class="Explain">{L_CAN_LEAVE_BLANK}</span></td>
+					<td class="BoardRowB"><textarea class="post" style="width:500px" name="reason" rows="10" cols="40">{REASON}</textarea></td>
+				</tr>
+				</table>
+				<br />
+			<!-- ENDIF -->
+			<br />{S_HIDDEN_FIELDS}{MESSAGE_TEXT}<br /><br />
+			<input type="submit" name="confirm" value="{YES_VALUE}" class="btnmain" />&nbsp;&nbsp;<input type="submit" name="cancel" value="{L_NO}" class="btnlite" /></span>
+		</td>
+	</tr>
+	</table>
+	{S_FORM_TOKEN}
+	</form>
+	
+</div>
+<!-- INCLUDE breadcrumbs.html -->
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,58 @@
+<!-- INCLUDE overall_header.html -->
+		<table width="100%" cellspacing="0" cellpadding="1" align="center">
+		<tr><td class="MainTable">
+                                  <table width="100%" cellpadding="2" cellspacing="0">
+        <tr>
+	    	<td witdh="2000" class="MainMenuRow"><!-- IF not S_IS_BOT --><a class="MainMenuLink" href="{U_MEMBERLIST}">{L_MEMBERLIST}</a> | <a class="MainMenuLink" href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a> | <a class="MainMenuLink" href="{U_TEAM}">{L_THE_TEAM}</a> | <!-- IF not S_IS_BOT and U_MARK_FORUMS --><a class="MainMenuLink" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a> | <!-- ENDIF -->
+				<!-- ENDIF --><!-- IF not S_IS_BOT --><a class="MainMenuLink" href="{U_DELETE_COOKIES}">{L_DELETE_COOKIES}</a><!-- ENDIF --> | {TOTAL_POSTS} | {TOTAL_TOPICS} | {TOTAL_USERS} </td>
+
+
+	<td class="MainMenuRow" width="3">&nbsp;{L_TOPICS}&nbsp;</td>
+	<td class="MainMenuRow" width="3">&nbsp;{L_POSTS}&nbsp;</td>
+	<td class="MainMenuRow" width="152" align="center">{L_LAST_POST}</td>
+
+</tr>
+
+<!-- INCLUDE forumlist_body.html -->
+
+<!-- IF S_DISPLAY_ONLINE_LIST -->
+<!-- ENDIF -->
+<!-- Birthday goes here -->
+<!-- Board Statistics go here -->
+<!-- IF not S_USER_LOGGED_IN -->
+	<form method="post" action="{S_LOGIN_ACTION}">
+	
+	<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td class="BoardColumn"><h4><a class="BoardColumnLink" href="{U_LOGIN_LOGOUT}">Quick Login</a></h4></td>
+	</tr>
+	<tr>
+		<td class="BoardRowA" align="center"><span class="genmed">{L_USERNAME}:</span> <input class="post" type="text" name="username" size="10" />&nbsp; <span class="genmed">{L_PASSWORD}:</span> <input class="post" type="password" name="password" size="10" />&nbsp; <!-- IF S_AUTOLOGIN_ENABLED --> <span class="gensmall">{L_LOG_ME_IN}</span> <input type="checkbox" class="radio" name="autologin" /><!-- ENDIF -->&nbsp; <input type="submit" class="btnmain" name="login" value="{L_LOGIN}" /></td>
+	</tr>
+	</table>
+	{S_FORM_TOKEN}
+	</form>
+<!-- ENDIF -->
+<!-- Forum Image Legend goes here --> 
+<!-- <!-- INCLUDE breadcrumbs.html --> -->
+	<table width="100%" cellspacing="0">
+
+	<tr><!-- <span class="genmed">{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /><br /> -->
+		<td class="MainMenuRow">{LOGGED_IN_USER_LIST} | {NEWEST_USER}</span></td>
+						<td class="MainMenuRow" width="40%"><!-- IF S_DISPLAY_SEARCH -->
+	<p class="searchbar">
+		<span style="float: {S_CONTENT_FLOW_BEGIN};"><a class="MainMenuLink" href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a> | <a class="MainMenuLink"href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a></span>
+		<!-- IF S_USER_LOGGED_IN -->
+		<span style="float: {S_CONTENT_FLOW_END};"><a class="MainMenuLink"href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a> | <a class="MainMenuLink"href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a></span>
+		<!-- ENDIF -->
+	</p>
+	<!-- ENDIF --> </td>
+
+	</tr>
+	<!-- <!-- IF LEGEND -->
+		<tr>
+			<td class="MainMenuRow"><b class="gensmall">{L_LEGEND} :: {LEGEND}</b></td>
+		</tr>
+	<!-- ENDIF --> -->
+	</table>
+<!-- INCLUDE overall_footer.html -->

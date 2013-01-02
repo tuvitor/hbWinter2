@@ -1,0 +1,61 @@
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+	<th class="MainMenuRow" align="center"><span class="TableHeader">{L_MESSAGE_HISTORY} - {HISTORY_TITLE}</span></th>
+</tr>
+<tr>
+	<td class="BoardRowB"><div style="overflow: auto; width: 100%; height: 300px;">
+
+		<table class="BoardRowA" width="100%" cellspacing="0">
+		<tr>
+			<th class="MainMenuRow" width="22%"><span class="TableHeader">{L_AUTHOR}</span></th>
+			<th class="MainMenuRow"><span class="TableHeader">{L_MESSAGE}</span></th>
+		</tr>
+	<!-- BEGIN history_row -->
+			<tr>
+			<td class="BoardRowB" rowspan="2" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><a name="{history_row.MSG_ID}"></a>
+				<table width="150" cellspacing="0">
+				<tr>
+					<td align="center" colspan="2"><span class="postauthor">{history_row.MESSAGE_AUTHOR_FULL}</span></td>
+				</tr>
+				</table>
+			</td>
+			<td class="BoardRowB" width="100%">
+				<div style="float: {S_CONTENT_FLOW_BEGIN};"><b>{L_PM_SUBJECT}:</b>&nbsp;{history_row.SUBJECT}</div><div style="float: {S_CONTENT_FLOW_END};"><b>{L_FOLDER}:</b>&nbsp;<span class="PostButtons">{history_row.FOLDER}</span></div>
+			</td>
+		</tr>
+
+			<td valign="top">
+				<table width="100%" cellspacing="0">
+				<tr>
+					<td valign="top">
+						<table width="100%" cellspacing="0" cellpadding="0">
+						<tr>
+							<td><div id="message_{history_row.MSG_ID}"><div class="postbody">{history_row.MESSAGE}</div></div></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<td width="100%">&nbsp;</td>
+							<td width="10" nowrap="nowrap">{history_row.MINI_POST_IMG}</td>
+							<td class="gensmall" nowrap="nowrap"><b>{L_SENT_AT}:</b> {history_row.SENT_DATE}</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<!-- IF history_row.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
+			<td class="BoardRowB"><a class="PostButtons" href="{history_row.U_VIEW_MESSAGE}">{L_VIEW_PM}</a></td>
+			<td><div class="gensmall" style="float: {S_CONTENT_FLOW_BEGIN};">&nbsp;<!-- IF history_row.U_PROFILE --><a href="{history_row.U_PROFILE}">{PROFILE_IMG}</a> <!-- ENDIF --> <!-- IF history_row.U_EMAIL --><a href="{history_row.U_EMAIL}">{EMAIL_IMG}</a> <!-- ENDIF -->&nbsp;</div> <div class="gensmall" style="float: {S_CONTENT_FLOW_END};"><!-- IF history_row.U_QUOTE --><a class="PostButtons" href="{history_row.U_QUOTE}">Quote PM</a> | <!-- ENDIF --> <!-- IF history_row.U_POST_REPLY_PM --><a class="PostButtons" href="{history_row.U_POST_REPLY_PM}">Reply to this Message</a><!-- ENDIF -->&nbsp;</div></td>
+		</tr>
+	<!-- END history_row -->
+		</table>
+	</div></td>
+</tr>
+</table>

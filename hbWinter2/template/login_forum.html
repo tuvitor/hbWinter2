@@ -1,0 +1,41 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="pagecontent">
+
+	<form name="login_forum" method="post" action="{S_LOGIN_ACTION}">
+	
+	<table class="tablebg" width="100%" cellspacing="0" align="center">
+	<tr> 
+		<th class="MainMenuRow"><b>{L_LOGIN}</b></th>
+	</tr>
+	<tr>
+		<td class="BoardRowB" align="center"><span class="Explain">{L_LOGIN_FORUM}</span></td>
+	</tr>
+	<tr> 
+		<td class="BoardRowB" align="center">
+		
+			<table cellspacing="0" cellpadding="4" border="0">
+			<!-- IF LOGIN_ERROR -->
+				<tr>
+					<td class="Explain" colspan="2" align="center"><span class="Error">{LOGIN_ERROR}</span></td>
+				</tr>
+			<!-- ENDIF -->
+			<tr> 
+				<td class="Explain"><b>{L_PASSWORD}:</b></td>
+				<td><input class="post" type="password" name="password" size="25" tabindex="2" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr> 
+		<td class="BoardRowB" colspan="2" align="center">{S_HIDDEN_FIELDS}<input type="submit" name="login" class="btnmain" value="{L_LOGIN}" tabindex="3" /></td>
+	</tr>
+	</table>
+	{S_FORM_TOKEN}
+	</form>
+
+</div>
+
+<div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
+<!-- INCLUDE breadcrumbs.html -->
+<!-- INCLUDE overall_footer.html -->

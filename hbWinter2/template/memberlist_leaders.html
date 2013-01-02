@@ -1,0 +1,63 @@
+<!-- INCLUDE overall_header.html -->
+
+<form method="post" action="{S_MODE_ACTION}">
+
+<table class="tablebg" width="100%" cellspacing="0">
+<tr>
+	<th nowrap="nowrap" width="20%" class="MainMenuRow"><span class="TableHeader">{L_USERNAME}</span></th>
+	<th nowrap="nowrap" width="25%" class="MainMenuRow"><span class="TableHeader">{L_FORUMS}</span></th>
+	<th nowrap="nowrap" width="20%" class="MainMenuRow"><span class="TableHeader">{L_PRIMARY_GROUP}</span></th>
+	<th nowrap="nowrap" width="15%" class="MainMenuRow"><span class="TableHeader">{L_RANK}</span></th>
+	<th nowrap="nowrap" width="11%" class="MainMenuRow"><span class="TableHeader">{L_SEND_MESSAGE}</span></th>
+</tr>
+<tr class="BoardRowB" align="center">
+	<td class="BoardRowB" colspan="5"><b>{L_ADMINISTRATORS}</b></td>
+</tr>
+<!-- BEGIN admin -->
+	<tr class="BoardRowB">
+
+	<td class="BoardRowB" align="center"><strong>{admin.USERNAME_FULL}</strong></td>
+	<td class="BoardRowB" align="center">&nbsp;</td>
+	<td class="BoardRowB" align="center" nowrap="nowrap">&nbsp;
+		<!-- IF admin.U_GROUP -->
+			<a<!-- IF admin.GROUP_COLOR --> style="font-weight: bold; color:#{admin.GROUP_COLOR}"<!-- ENDIF --> href="{admin.U_GROUP}">{admin.GROUP_NAME}</a>
+		<!-- ELSE -->
+			{admin.GROUP_NAME}
+		<!-- ENDIF -->
+	&nbsp;</td>
+	<td class="BoardRowB" align="center"><!-- IF admin.RANK_IMG -->{admin.RANK_IMG}<!-- ELSE --><span class="Explain">{admin.RANK_TITLE}</span><!-- ENDIF --></td>
+	<td class="BoardRowB" align="center">&nbsp;<!-- IF admin.U_PM --><a href="{admin.U_PM}"><span class="PostButtons">PM</span></a><!-- ENDIF -->&nbsp;</td>
+</tr>
+<!-- BEGINELSE -->
+	<tr>
+		<td class="BoardRowB" colspan="5" align="center"><span class="gen">{L_NO_ADMINISTRATORS}</span></td>
+	</tr>
+<!-- END admin -->
+<tr class="BoardRowB" align="center">
+	<td class="BoardRowB" colspan="5"><b>{L_MODERATORS}</b></td>
+</tr>
+<!-- BEGIN mod -->
+	<tr class="BoardRowB">
+
+	<td class="BoardRowB" align="center"><strong>{mod.USERNAME_FULL}</strong></td>
+	<td class="BoardRowB" align="center"><!-- IF not mod.FORUMS -->{L_ALL_FORUMS}<!-- ELSE --><select style="width: 200px;">{mod.FORUMS}</select><!-- ENDIF -->&nbsp;</td>
+	<td class="BoardRowB" align="center" nowrap="nowrap">&nbsp;
+		<!-- IF mod.U_GROUP -->
+			<a<!-- IF mod.GROUP_COLOR --> style="font-weight: bold; color:#{mod.GROUP_COLOR}"<!-- ENDIF --> href="{mod.U_GROUP}">{mod.GROUP_NAME}</a>
+		<!-- ELSE -->
+			{mod.GROUP_NAME}
+		<!-- ENDIF -->
+	&nbsp;</td>
+	<td class="BoardRowB" align="center"><span class="Explain"><!-- IF mod.RANK_IMG -->{mod.RANK_IMG}<!-- ELSE -->{mod.RANK_TITLE}<!-- ENDIF --></span></td>
+	<td class="BoardRowB" align="center">&nbsp;<!-- IF mod.U_PM --><a href="{mod.U_PM}"><span class="PostButtons">PM</span></a><!-- ENDIF -->&nbsp;</td>
+</tr>
+<!-- BEGINELSE -->
+	<tr class="BoardRowB">
+		<td class="BoardRowB" colspan="5" align="center"><span class="Explain">{L_NO_MODERATORS}</span></td>
+	</tr>
+<!-- END mod -->
+</table>
+</form>
+<tr><td class="MainMenuRow" <div style="float: {S_CONTENT_FLOW_END};"><!-- INCLUDE jumpbox.html --></div></td></tr>
+<!-- INCLUDE breadcrumbs.html -->
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,113 @@
+<!-- INCLUDE mcp_header.html -->
+
+<!-- IF S_SHOW_UNAPPROVED -->
+	<form name="mcp_queue" method="post" action="{S_MCP_QUEUE_ACTION}">
+
+	<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td class="BoardRowB" colspan="6" align="center"><b>{L_LATEST_UNAPPROVED}</b></td>
+	</tr>
+	<tr>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_FORUM}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_TOPIC}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_SUBJECT}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_AUTHOR}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_POST_TIME}&nbsp;</span></th>
+		<th width="5%" class="MainMenuRow"><span class="TableHeader">&nbsp;{L_SELECT}&nbsp;</span></th>
+	</tr>
+	<!-- BEGIN unapproved -->
+		<tr>
+			<td class="BoardRowB" width="15%" valign="top"><!-- IF unapproved.U_FORUM --><a class="BoardRowBLink" href="{unapproved.U_FORUM}">{unapproved.FORUM_NAME}</a><!-- ELSE -->{unapproved.FORUM_NAME}<!-- ENDIF --><!-- IF unapproved.U_MCP_FORUM --><br />[ <a class="PostButtons" href="{unapproved.U_MCP_FORUM}">{L_MODERATE}</a> ]</span><!-- ENDIF --></td>
+			<td class="BoardRowB" valign="top"><a class="BoardRowBLink" href="{unapproved.U_TOPIC}">{unapproved.TOPIC_TITLE}</a></span><br />[ <a class="PostButtons" href="{unapproved.U_MCP_TOPIC}">{L_MODERATE}</a> ]</td>
+			<td class="BoardRowB" valign="top">{unapproved.SUBJECT}<br />[ <a class="PostButtons" href="{unapproved.U_POST_DETAILS}">{L_VIEW_DETAILS}</a> ]</td>
+			<td class="BoardRowB" align="center" width="15%" nowrap="nowrap" valign="top"><!-- IF unapproved.U_AUTHOR --><a class="genericuser" href="{unapproved.U_AUTHOR}">{unapproved.AUTHOR}</a><!-- ELSE -->{unapproved.AUTHOR}<!-- ENDIF --></td>
+			<td class="BoardRowB" align="center" width="15%" nowrap="nowrap" valign="top"><span class="Explain">{unapproved.POST_TIME}</span></td>
+			<td class="BoardRowB" align="center"><input type="checkbox" class="radio" name="post_id_list[]" value="{unapproved.POST_ID}" /></td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="BoardRowB" colspan="6" align="center"><span class="gen">{L_UNAPPROVED_POSTS_ZERO_TOTAL}</span></td>
+		</tr>
+	<!-- END unapproved -->
+	<!-- IF S_HAS_UNAPPROVED_POSTS -->
+		<tr>
+			<td class="BoardRowB" colspan="6"><span class="Explain">{L_UNAPPROVED_TOTAL}</span></td>
+		</tr>
+	<!-- ENDIF -->
+	<tr>
+		<td class="BoardRowB" colspan="6" align="center"><input class="btnmain" type="submit" name="action[approve]" value="{L_APPROVE}" />&nbsp;&nbsp;<input class="btnlite" type="submit" name="action[disapprove]" value="{L_DISAPPROVE}" /></td>
+	</tr>
+	</table>
+	{S_FORM_TOKEN}
+	</form>
+	
+	<table width="100%" cellspacing="0" cellpadding="2" border="0" align="center">
+	<tr>
+		<td class="MainMenuRow" align="{S_CONTENT_FLOW_END}" valign="top" nowrap="nowrap"><b class="gensmall"><a class="MainMenuLink" href="#" onclick="marklist('mcp_queue', '', true); return false;">{L_MARK_ALL}</a> | <a class="MainMenuLink" href="#" onclick="marklist('mcp_queue', '', false); return false;">{L_UNMARK_ALL}</a></b></td>
+	</tr>
+	</table>
+<!-- ENDIF -->
+<!-- IF S_SHOW_REPORTS -->
+	<table class="tablebg" width="100%" cellspacing="0">
+	<tr>
+		<td class="BoardRowB" colspan="5" align="center"><b>{L_LATEST_REPORTED}</b></td>
+	</tr>
+	<tr>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_FORUM}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_TOPIC}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_SUBJECT}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_REPORTER}&nbsp;</span></th>
+		<th class="MainMenuRow"><span class="TableHeader">&nbsp;{L_REPORT_TIME}&nbsp;</span></th>
+	</tr>
+	<!-- BEGIN report -->
+		<tr>
+			<td class="BoardRowB" width="15%" valign="top"><!-- IF report.U_FORUM --><a class="SubjectLink" href="{report.U_FORUM}">{report.FORUM_NAME}</a><!-- ELSE -->{report.FORUM_NAME}<!-- ENDIF --><!-- IF report.U_MCP_FORUM --><br />[ <a class="PostButtons" href="{report.U_MCP_FORUM}">{L_MODERATE}</a> ]<!-- ENDIF --></td>
+			<td class="BoardRowB" valign="top"><a class="BoardRowBLink" href="{report.U_TOPIC}">{report.TOPIC_TITLE}</a><br />[ <a class="PostButtons" href="{report.U_MCP_TOPIC}">{L_MODERATE}</a> ]</span></td>
+			<td class="BoardRowB" valign="top">{report.SUBJECT}<br />[ <a class="PostButtons" href="{report.U_POST_DETAILS}">{L_VIEW_DETAILS}</a> ]</td>
+			<td class="BoardRowB" align="center" width="15%" nowrap="nowrap" valign="top">{report.REPORTER_FULL}</td>
+			<td class="BoardRowB" align="center" width="15%" nowrap="nowrap" valign="top"><span class="Explain">{report.REPORT_TIME}</span></td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="BoardRowB" colspan="5" align="center">{L_REPORTS_ZERO_TOTAL}</td>
+		</tr>
+	<!-- END report -->
+	<!-- IF S_HAS_REPORTS -->
+		<tr>
+			<td class="BoardRowB" colspan="5"><span class="Explain">{L_REPORTS_TOTAL}</span></td>
+		</tr>
+	<!-- ENDIF -->
+	</table>
+<!-- ENDIF -->
+
+<!-- IF S_SHOW_LOGS -->
+	<table class="tablebg" width="100%" cellspacing="0" cellpadding="4" border="0" align="{S_CONTENT_FLOW_END}">
+	<tr>
+		<td class="BoardRowB" colspan="5" align="center"><b>{L_LATEST_LOGS}</b></td>
+	</tr>
+	<tr>
+		<th width="15%" nowrap="nowrap" class="MainMenuRow"><span class="TableHeader">{L_USERNAME}</span></th>
+		<th width="12%" nowrap="nowrap" class="MainMenuRow"><span class="TableHeader">{L_IP}</span></th>
+		<th width="45%" nowrap="nowrap" class="MainMenuRow"><span class="TableHeader">{L_ACTION}</span></th>
+		<th nowrap="nowrap" class="MainMenuRow"></th>
+		<th width="18%" nowrap="nowrap" class="MainMenuRow"><span class="TableHeader">{L_TIME}</span></th>
+	</tr>
+	<!-- BEGIN log -->
+		<tr>
+			<td class="BoardRowB" nowrap="nowrap">{log.USERNAME}</td>
+			<td class="BoardRowB" align="center" nowrap="nowrap"><span class="Explain">{log.IP}</span></td>
+			<td class="BoardRowB"><span class="Explain">{log.ACTION}</span></td>
+			<td class="BoardRowB" align="center" nowrap="nowrap"><!-- IF log.U_VIEW_TOPIC --><a class="PostButtons" href="{log.U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a><!-- IF log.U_VIEWLOGS --> | <!-- ENDIF --><!-- ENDIF --><!-- IF log.U_VIEWLOGS --><a class="PostButtons" href="{log.U_VIEWLOGS}">{L_VIEW_TOPIC_LOGS}</a><!-- ENDIF --></span></td>
+			<td class="BoardRowB" align="center" nowrap="nowrap"><span class="Explain">{log.TIME}</span></td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="BoardRowB" colspan="5" align="center"><span class="gen">{L_NO_ENTRIES}</span></td>
+		</tr>
+	<!-- END log -->
+	</table>
+<!-- 
+	<br clear="all" /> -->
+<!-- ENDIF -->
+
+<!-- INCLUDE mcp_footer.html -->

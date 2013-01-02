@@ -1,0 +1,75 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="pageheader">
+
+
+	<tr><td class="MainMenuRow" align="center"><!-- IF TOPIC_TITLE or FORUM_NAME -->
+	<!-- IF TOPIC_TITLE --><a class="MainMenuLink" href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a><!-- ELSE --><a class="MainMenuLink" href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- ENDIF -->
+	<!-- ENDIF -->	<!-- IF U_MCP -->
+			[ <a class="MainMenuLink"href="{U_MCP}">{L_MCP}</a><!-- IF U_MCP_FORUM --> | <a class="MainMenuLink"href="{U_MCP_FORUM}">{L_MODERATE_FORUM}</a><!-- ENDIF -->
+			<!-- IF U_MCP_TOPIC --> | <a class="MainMenuLink"href="{U_MCP_TOPIC}">{L_MODERATE_TOPIC}</a><!-- ENDIF -->
+			<!-- IF U_MCP_POST --> | <a class="MainMenuLink"href="{U_MCP_POST}">{L_MODERATE_POST}</a><!-- ENDIF --> ]
+	</td></tr>
+</div>
+<!-- ENDIF -->
+<div id="pagecontent">
+
+	<table width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td width="20%" valign="top">
+
+			<table class="BoardRowB" width="100%" cellspacing="0">
+			<tr>
+				<th class="MainMenuRow"><span class="TableHeader">{L_OPTIONS}</span></th>
+			</tr>
+			<!-- BEGIN l_block1 -->
+				<tr>
+				<!-- IF l_block1.S_SELECTED -->
+					<td class="BoardRowB"><b>{l_block1.L_TITLE}</b>
+
+					<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
+					<!-- BEGIN l_block2 -->
+						<li>&#187; <!-- IF l_block1.l_block2.S_SELECTED --><b>{l_block1.l_block2.L_TITLE}</b><!-- ELSE --><a class="PostButtons" href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}</a><!-- ENDIF --></li>
+					<!-- END l_block2 -->
+					</ul>
+				<!-- ELSE -->
+					<td class="BoardRowB" nowrap="nowrap" onmouseover="this.className='BoardRowA'" nmouseout="this.className='row2'" onclick="location.href=this.firstChild.href;"><a class="nav" href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>
+				<!-- ENDIF -->
+					</td>
+				</tr>
+			<!-- END l_block1 -->
+			</table>
+
+		</td>
+
+		<td width="80%" valign="top">
+
+		<!-- IF MESSAGE -->
+			<table class="tablebg" width="100%" cellspacing="1">
+			<tr>
+				<th class="MainMenuRow"><span class="TableHeader">{L_MESSAGE}</span></th>
+			</tr>
+			<tr>
+				<td class="BoardRowB" align="center"><br /><span class="Explain">{MESSAGE}<br /><br /><!-- BEGIN return_links -->{return_links.MESSAGE_LINK}<br /><br /><!-- END return_links --></span></td>
+			</tr>
+			</table>
+
+			<br />
+		<!-- ENDIF -->
+
+		<!-- IF CONFIRM_MESSAGE -->
+			<form name="confirm" method="post" action="{S_CONFIRM_ACTION}">
+
+			<table class="tablebg" width="100%" cellspacing="1">
+			<tr>
+				<th class="MainMenuRow"><span class="TableHeader">{L_PLEASE_CONFIRM}</span></th>
+			</tr>
+			<tr>
+				<td class="BoardRowB" align="center"><span class="Explain"><br />{CONFIRM_MESSAGE}<br /><br />{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="confirm" value="{L_YES}" />&nbsp;&nbsp;<input class="btnlite" type="submit" name="cancel" value="{L_NO}" /><br /><br /></span></td>
+			</tr>
+			</table>
+
+			</form>
+
+			<br />
+		<!-- ENDIF -->
